@@ -52,6 +52,8 @@ firebase.google.com/go v3.13.0+incompatible h1:3TdYC3DDi6aHn20qoRkxwGqNgdjtblwVA
 firebase.google.com/go v3.13.0+incompatible/go.mod h1:xlah6XbEyW6tbfSklcfe5FHJIwjt8toICdV5Wh9ptHs=
 github.com/99designs/gqlgen v0.14.0 h1:Wg8aNYQUjMR/4v+W3xD+7SizOy6lSvVeQ06AobNQAXI=
 github.com/99designs/gqlgen v0.14.0/go.mod h1:S7z4boV+Nx4VvzMUpVrY/YuHjFX4n7rDyuTqvAkuoRE=
+github.com/AgoraIO/Tools/DynamicKey/AgoraDynamicKey/go/src v0.0.0-20210806171822-0630dba41e89 h1:2a+Ornm2IvLtNBid9HpHnQNU+BA9kA1UXD726bUUnK8=
+github.com/AgoraIO/Tools/DynamicKey/AgoraDynamicKey/go/src v0.0.0-20210806171822-0630dba41e89/go.mod h1:4bXIK0ntDk9CqAXobmomWd7dedbfNv/aaIpmpqqzt+A=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym/WlBOVXweHU+Q+/VP0lqqI8lqeDx9IjBqo=
 github.com/OneOfOne/xxhash v1.2.2/go.mod h1:HSdplMjZKSmBqAxg5vPj2TmRDmfkzw+cTzAElWljhcU=

@@ -1,6 +1,7 @@
 package graph
 
 import (
+	"canvas-server/infra/agora"
 	"canvas-server/infra/firebase"
 )
 
@@ -11,13 +12,16 @@ import (
 type Resolver struct {
 	contextProvider ContextProvider
 	fireClient      firebase.Client
+	agoraClient     agora.Client
 }
 
 func NewResolver(
 	contextProvider ContextProvider,
-	fireClient firebase.Client) *Resolver {
+	fireClient firebase.Client,
+	agoraClient agora.Client) *Resolver {
 	return &Resolver{
 		contextProvider: contextProvider,
 		fireClient:      fireClient,
+		agoraClient:     agoraClient,
 	}
 }

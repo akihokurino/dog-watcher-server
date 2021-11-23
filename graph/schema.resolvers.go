@@ -7,11 +7,18 @@ import (
 	"canvas-server/graph/generated"
 	"canvas-server/graph/model"
 	"context"
-	"fmt"
 )
 
 func (r *queryResolver) RtcToken(ctx context.Context) (*model.RTCToken, error) {
-	panic(fmt.Errorf("not implemented"))
+	uid := r.contextProvider.MustAuthUID(ctx)
+	token, err := r.agoraClient.GetRTCToken(uid)
+	if err != nil {
+		return nil, err
+	}
+
+	return &model.RTCToken{
+		Token: token,
+	}, nil
 }
 
 // Query returns generated.QueryResolver implementation.

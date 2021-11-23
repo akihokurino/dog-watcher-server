@@ -7,6 +7,7 @@ require (
 	cloud.google.com/go/storage v1.18.2 // indirect
 	firebase.google.com/go v3.13.0+incompatible
 	github.com/99designs/gqlgen v0.14.0
+	github.com/AgoraIO/Tools/DynamicKey/AgoraDynamicKey/go/src v0.0.0-20210806171822-0630dba41e89
 	github.com/google/wire v0.5.0
 	github.com/pkg/errors v0.9.1
 	github.com/vektah/gqlparser/v2 v2.2.0

@@ -36,10 +36,6 @@ type env struct {
 }
 
 func MustLoadLocalEnv(path string) {
-	if os.Getenv("IS_LOCAL") != "true" {
-		return
-	}
-
 	buf, err := ioutil.ReadFile(path)
 	if err != nil {
 		panic(err)
