@@ -29,7 +29,7 @@ type client struct {
 }
 
 func (c *client) GetRTCToken(uid firebase.UID) (string, error) {
-	expireTimeInSeconds := uint32(40)
+	expireTimeInSeconds := uint32(60 * 30)
 	currentTimestamp := uint32(time.Now().UTC().Unix())
 	expireTimestamp := currentTimestamp + expireTimeInSeconds
 
