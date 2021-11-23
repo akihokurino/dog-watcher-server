@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
       target: local-dev
-    image: dog-watcher-server-local:latest
+    image: live-server-local:latest
     ports:
       - '3000:8080'
     volumes:
