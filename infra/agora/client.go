@@ -34,7 +34,7 @@ func (c *client) GetRTCToken(uid firebase.UID) (string, error) {
 	expireTimestamp := currentTimestamp + expireTimeInSeconds
 
 	log.Printf("call agora token, app_id: %s, uid: %s", c.appID, uid.String())
-	result, err := rtctokenbuilder.BuildTokenWithUserAccount(c.appID, c.certID, channelName, uid.String(), 1, expireTimestamp)
+	result, err := rtctokenbuilder.BuildTokenWithUID(c.appID, c.certID, channelName, 0, 1, expireTimestamp)
 	if err != nil {
 		log.Printf("agora error: %+v", err)
 		return "", errors.WithStack(err)
