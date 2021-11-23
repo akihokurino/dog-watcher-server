@@ -4,9 +4,9 @@ package graph
 // will be copied through when generating and any unknown code will be moved to the end.
 
 import (
-	"canvas-server/graph/generated"
-	"canvas-server/graph/model"
 	"context"
+	"live-server/graph/generated"
+	"live-server/graph/model"
 )
 
 func (r *queryResolver) RtcToken(ctx context.Context) (*model.RTCToken, error) {

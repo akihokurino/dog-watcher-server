@@ -3,9 +3,9 @@
 package di
 
 import (
-	"canvas-server/graph"
-	"canvas-server/infra/agora"
-	"canvas-server/infra/firebase"
+	"live-server/graph"
+	"live-server/infra/agora"
+	"live-server/infra/firebase"
 	"os"
 
 	"github.com/google/wire"

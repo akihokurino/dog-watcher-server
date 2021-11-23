@@ -1,8 +1,8 @@
 package graph
 
 import (
-	"canvas-server/infra/agora"
-	"canvas-server/infra/firebase"
+	"live-server/infra/agora"
+	"live-server/infra/firebase"
 )
 
 // This file will not be regenerated automatically.

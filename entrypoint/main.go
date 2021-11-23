@@ -1,7 +1,7 @@
 package main
 
 import (
-	"canvas-server/di"
+	"live-server/di"
 	"fmt"
 	"io/ioutil"
 	"log"

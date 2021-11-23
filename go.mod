@@ -1,4 +1,4 @@
-module canvas-server
+module live-server
 
 go 1.15
 

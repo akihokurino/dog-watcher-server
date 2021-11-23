@@ -1,7 +1,7 @@
 package agora
 
 import (
-	"canvas-server/infra/firebase"
+	"live-server/infra/firebase"
 	"log"
 	"time"
 
