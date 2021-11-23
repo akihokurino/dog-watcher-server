@@ -6,3 +6,5 @@
 - firebase auth
 - wire（ https://github.com/google/wire ）
 - agora（ https://console.agora.io/ ）
+- datastore
+- boom（ https://github.com/mercari/datastore ）
