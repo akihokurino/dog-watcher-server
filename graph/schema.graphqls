@@ -2,10 +2,20 @@
 #
 # https://gqlgen.com/getting-started/
 
-type Query {
-    rtcToken: RTCToken!
+type Mutation {
+    createAgoraToken(input: CreateAgoraTokenInput!): AgoraToken!
 }
 
-type RTCToken {
+input CreateAgoraTokenInput {
+    channelName: String!
+    role: AgoraRole!
+}
+
+enum AgoraRole {
+    Publisher,
+    Subscriber
+}
+
+type AgoraToken {
     token: String!
 }

@@ -9,19 +9,19 @@ import (
 	"live-server/graph/model"
 )
 
-func (r *queryResolver) RtcToken(ctx context.Context) (*model.RTCToken, error) {
+func (r *mutationResolver) CreateAgoraToken(ctx context.Context, input model.CreateAgoraTokenInput) (*model.AgoraToken, error) {
 	uid := r.contextProvider.MustAuthUID(ctx)
-	token, err := r.agoraClient.GetRTCToken(uid)
+	token, err := r.agoraClient.GetRTCToken(uid, input.ChannelName, input.Role)
 	if err != nil {
 		return nil, err
 	}
 
-	return &model.RTCToken{
+	return &model.AgoraToken{
 		Token: token,
 	}, nil
 }
 
-// Query returns generated.QueryResolver implementation.
-func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
+// Mutation returns generated.MutationResolver implementation.
+func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
 
-type queryResolver struct{ *Resolver }
+type mutationResolver struct{ *Resolver }

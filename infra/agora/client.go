@@ -1,6 +1,7 @@
 package agora
 
 import (
+	"live-server/graph/model"
 	"live-server/infra/firebase"
 	"log"
 	"time"
@@ -10,10 +11,8 @@ import (
 	rtctokenbuilder "github.com/AgoraIO/Tools/DynamicKey/AgoraDynamicKey/go/src/RtcTokenBuilder"
 )
 
-const channelName = "channel-alpha"
-
 type Client interface {
-	GetRTCToken(uid firebase.UID) (string, error)
+	GetRTCToken(uid firebase.UID, channelName string, role model.AgoraRole) (string, error)
 }
 
 func NewClient(appID string, certID string) Client {
@@ -28,13 +27,20 @@ type client struct {
 	certID string
 }
 
-func (c *client) GetRTCToken(uid firebase.UID) (string, error) {
+func (c *client) GetRTCToken(uid firebase.UID, channelName string, role model.AgoraRole) (string, error) {
 	expireTimeInSeconds := uint32(60 * 30)
 	currentTimestamp := uint32(time.Now().UTC().Unix())
 	expireTimestamp := currentTimestamp + expireTimeInSeconds
 
-	log.Printf("call agora token, app_id: %s, uid: %s", c.appID, uid.String())
-	result, err := rtctokenbuilder.BuildTokenWithUID(c.appID, c.certID, channelName, 0, 1, expireTimestamp)
+	var ar rtctokenbuilder.Role
+	if role == model.AgoraRolePublisher {
+		ar = rtctokenbuilder.RolePublisher
+	}
+	if role == model.AgoraRoleSubscriber {
+		ar = rtctokenbuilder.RoleSubscriber
+	}
+
+	result, err := rtctokenbuilder.BuildTokenWithUID(c.appID, c.certID, channelName, 0, ar, expireTimestamp)
 	if err != nil {
 		log.Printf("agora error: %+v", err)
 		return "", errors.WithStack(err)
