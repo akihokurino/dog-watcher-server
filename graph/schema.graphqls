@@ -1,19 +1,8 @@
 # GraphQL schema example
 #
 # https://gqlgen.com/getting-started/
-
-type Mutation {
-    createAgoraToken(input: CreateAgoraTokenInput!): AgoraToken!
-}
-
-input CreateAgoraTokenInput {
-    channelName: String!
-    role: AgoraRole!
-}
-
-enum AgoraRole {
-    Publisher,
-    Subscriber
+type Query {
+    agoraToken(channelName: String!): AgoraToken!
 }
 
 type AgoraToken {

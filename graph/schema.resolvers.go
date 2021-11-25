@@ -9,9 +9,9 @@ import (
 	"go-webrtc/graph/model"
 )
 
-func (r *mutationResolver) CreateAgoraToken(ctx context.Context, input model.CreateAgoraTokenInput) (*model.AgoraToken, error) {
+func (r *queryResolver) AgoraToken(ctx context.Context, channelName string) (*model.AgoraToken, error) {
 	uid := r.contextProvider.MustAuthUID(ctx)
-	token, err := r.agoraClient.GetRTCToken(uid, input.ChannelName, input.Role)
+	token, err := r.agoraClient.GetRTCToken(uid, channelName)
 	if err != nil {
 		return nil, err
 	}
@@ -21,7 +21,7 @@ func (r *mutationResolver) CreateAgoraToken(ctx context.Context, input model.Cre
 	}, nil
 }
 
-// Mutation returns generated.MutationResolver implementation.
-func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
+// Query returns generated.QueryResolver implementation.
+func (r *Resolver) Query() generated.QueryResolver { return &queryResolver{r} }
 
-type mutationResolver struct{ *Resolver }
+type queryResolver struct{ *Resolver }

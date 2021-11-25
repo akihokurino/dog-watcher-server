@@ -1,7 +1,6 @@
 package agora
 
 import (
-	"go-webrtc/graph/model"
 	"go-webrtc/infra/firebase"
 	"log"
 	"time"
@@ -12,7 +11,7 @@ import (
 )
 
 type Client interface {
-	GetRTCToken(uid firebase.UID, channelName string, role model.AgoraRole) (string, error)
+	GetRTCToken(uid firebase.UID, channelName string) (string, error)
 }
 
 func NewClient(appID string, certID string) Client {
@@ -27,20 +26,18 @@ type client struct {
 	certID string
 }
 
-func (c *client) GetRTCToken(uid firebase.UID, channelName string, role model.AgoraRole) (string, error) {
+func (c *client) GetRTCToken(uid firebase.UID, channelName string) (string, error) {
 	expireTimeInSeconds := uint32(60 * 30)
 	currentTimestamp := uint32(time.Now().UTC().Unix())
 	expireTimestamp := currentTimestamp + expireTimeInSeconds
 
-	var ar rtctokenbuilder.Role
-	if role == model.AgoraRolePublisher {
-		ar = rtctokenbuilder.RolePublisher
-	}
-	if role == model.AgoraRoleSubscriber {
-		ar = rtctokenbuilder.RoleSubscriber
-	}
-
-	result, err := rtctokenbuilder.BuildTokenWithUID(c.appID, c.certID, channelName, 0, ar, expireTimestamp)
+	result, err := rtctokenbuilder.BuildTokenWithUID(
+		c.appID,
+		c.certID,
+		channelName,
+		0,
+		rtctokenbuilder.RolePublisher,
+		expireTimestamp)
 	if err != nil {
 		log.Printf("agora error: %+v", err)
 		return "", errors.WithStack(err)
