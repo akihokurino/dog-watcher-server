@@ -1,4 +1,4 @@
-module live-server
+module go-webrtc
 
 go 1.15
 

@@ -5,8 +5,8 @@ package graph
 
 import (
 	"context"
-	"live-server/graph/generated"
-	"live-server/graph/model"
+	"go-webrtc/graph/generated"
+	"go-webrtc/graph/model"
 )
 
 func (r *mutationResolver) CreateAgoraToken(ctx context.Context, input model.CreateAgoraTokenInput) (*model.AgoraToken, error) {

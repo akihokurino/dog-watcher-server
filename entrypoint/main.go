@@ -1,7 +1,7 @@
 package main
 
 import (
-	"live-server/di"
+	"go-webrtc/di"
 	"fmt"
 	"io/ioutil"
 	"log"

@@ -1,7 +1,7 @@
 package graph
 
 import (
-	"live-server/infra/firebase"
+	"go-webrtc/infra/firebase"
 	"context"
 )
 

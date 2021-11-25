@@ -1,7 +1,7 @@
 package graph
 
 import (
-	"live-server/graph/generated"
+	"go-webrtc/graph/generated"
 	"net/http"
 
 	"github.com/99designs/gqlgen/graphql/handler"

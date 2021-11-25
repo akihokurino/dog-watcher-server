@@ -1,8 +1,8 @@
 package agora
 
 import (
-	"live-server/graph/model"
-	"live-server/infra/firebase"
+	"go-webrtc/graph/model"
+	"go-webrtc/infra/firebase"
 	"log"
 	"time"
 

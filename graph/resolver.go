@@ -1,8 +1,8 @@
 package graph
 
 import (
-	"live-server/infra/agora"
-	"live-server/infra/firebase"
+	"go-webrtc/infra/agora"
+	"go-webrtc/infra/firebase"
 )
 
 // This file will not be regenerated automatically.

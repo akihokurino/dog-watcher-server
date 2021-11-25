@@ -3,9 +3,9 @@
 package di
 
 import (
-	"live-server/graph"
-	"live-server/infra/agora"
-	"live-server/infra/firebase"
+	"go-webrtc/graph"
+	"go-webrtc/infra/agora"
+	"go-webrtc/infra/firebase"
 	"os"
 
 	"github.com/google/wire"
