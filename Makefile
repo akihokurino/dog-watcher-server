@@ -18,11 +18,11 @@ run-local:
 	docker-compose up
 
 deploy-gae: vendor gen build gen-app-yaml
-	gcloud config set project live-333014
-	gcloud app deploy --quiet --version 1 --project live-333014 app.yaml
+	gcloud config set project webrtc-agora
+	gcloud app deploy --quiet --version 1 --project webrtc-agora app.yaml
 
 deploy-index:
-	gcloud config set project live-333014
+	gcloud config set project webrtc-agora
 	gcloud app deploy --quiet index.yaml
 
 gen-app-yaml:
